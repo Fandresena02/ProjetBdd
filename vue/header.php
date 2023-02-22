@@ -24,7 +24,7 @@
                                 <ul>
                                     <li><a href="../controlleur/index.php?action=accueil">Accueil</a></li>
                                     <li><a href="../controlleur/index.php?action=logement#one">Liste logement</a></li>
-                                    <li><a href="../controlleur/index.php?action=client">Liste client</a></li>
+                                    <li><a href="../controlleur/index.php?action=client#one">Liste client</a></li>
                                     <li><a href="index.php?action=deconnexion">Se déconnecter</a></li>
                                 </ul>
                             </div>

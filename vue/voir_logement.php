@@ -9,12 +9,43 @@
 </head>
 
 
-<header class="style1" id="one">
+<header class="style1" id="one"><hr>
     <center>
-	    <h2>Voici la liste des logements</h2>
+	    <h2>La liste des logements</h2>
     </center>
-<button onclick="myFunction()">Click me</button>
-</header><hr>
+    <h5>Filtre :</h5>
+        <form action="../controlleur/index.php?action=logement#one" method = "POST">
+            <div class="row">
+                <div class="col-6 col-12-medium">
+                    <ul class="actions">
+                        <li>
+                            <input type="radio" id="maison" name="type" value="maison" <?php if(isset($type) && $type ==="maison"){?> checked <?php } ?>>
+                            <label for="maison">Maison</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="appartement" name="type" value="appartement" <?php if(isset($type) && $type ==="appartement"){?> checked <?php } ?>>
+                            <label for="appartement">Appartement</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="tous" name="type" value="tous" <?php if(!isset($type) || $type ==="tous"){?> checked <?php } ?>>
+                            <label for="tous">Tous</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-12-medium">
+                    <ul class="actions stacked">
+                        <li>
+                            <input class="button primary fit" type="submit" value="Rechercher" name="search">
+                            <?php  if(isset($type)) echo count($lesLogements)," résultat(s)"?> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </form>
+    <hr>
+
+</header>
     <div id="demo"></div>
 <section class="cards-wrapper">
 <?php

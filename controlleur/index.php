@@ -59,9 +59,16 @@ if (!isset($_SESSION["id"]) && isset($_REQUEST['action']))
                     include ("../vue/accueil.php");
                  break;
                 case 'logement':
-                     $lesLogements = getLogement();
-                     include("../vue/voir_logement.php");
-                     break;
+                    if (isset ($_POST["search"]))
+                    {
+                        $type = htmlspecialchars(isset($_POST['type']))? $_POST['type'] : '' ;
+                        if($type == "tous") $lesLogements = getLogement();
+                        else $lesLogements = getMaisonApart($type);
+                    }else{
+                        $lesLogements = getLogement();
+                    }
+                    include("../vue/voir_logement.php");
+                    break;
                 case 'client':
                     $lesClients = getClient();
                     include ("../vue/voir_client.php");

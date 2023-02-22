@@ -15,6 +15,23 @@ function getLogement()
     
     return ($data);
 }
+function getMaisonApart($typeLogement)
+{
+    include 'db_connect.php';
+    
+    $req1 = "select l.idLogement, pers.nom, pers.prenom, l.type, l.nbPieces, l.surface, l.etatHabitation, l.objectifGestion, l.prixVenteLocation, l.dateDispo, l.commition, a.libelle from logement as l
+    inner join proprietaire as p on p.idProp = l.idnomProprietaire
+    inner join personne as pers on pers.idPersonne = p.idPersonne
+    inner join adresse as a on a.idAdresse = l.idAdresse
+    inner join agence as ag on ag.idAgence = l.idAgence
+    where l.type = ?";
+    $res1 = $dbh -> prepare($req1);
+    $res1 -> bindParam(1,$typeLogement);
+    $res1 -> execute();
+    $data1 = $res1 -> fetchAll(PDO::FETCH_ASSOC);
+    
+    return ($data1);
+}
 function getunLogement($numero)
 {
     include 'db_connect.php';
@@ -36,21 +53,12 @@ function getClient()
 {
     include 'db_connect.php';
 
-    $req5 = "select pers.nom as nomAd, pers.prenom as prenomAd, c.jourHeure as date, 
-    c.nbPlace as place, pers1.nom as nomProf, pers1.prenom as prenomProf, i.nomInstru as instru,
-    ins.idAdherent as idAd, ins.idCours as idC
-    from inscription ins
-    inner join adherent as a on a.id = ins.idAdherent
-    inner join cours as c on c.id = ins.idCours
-    inner join professeur as prof on prof.id = c.idProfesseur
-    inner join personnes as pers on pers.id = a.id
-    inner join personnes as pers1 on pers1.id = prof.id
-    inner join instrument as i on i.id = c.idInstrument";
+    $req5 = "select p.nom, p.prenom, p.autorise, a.libelle, a.cp, a.ville from personne as p
+    inner join adresse as a on a.idAdresse = p.idAdresse";
 
     $res5 = $dbh -> prepare($req5);
     $res5 -> execute();
     $data3 = $res5 -> fetchAll(PDO::FETCH_ASSOC);
-    /*var_dump($data3);*/
     return ($data3);
 }
 
