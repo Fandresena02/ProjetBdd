@@ -3,7 +3,10 @@
     <div class="inner">
         <header>
             <h2>Logeons-nous</h2>
-            <p>Votre agence immobilière</p>
+            <p>Votre agence immobilière <br>
+            <u>Contact :</u>  01 16 89 33 83 <br>
+            <u>Adresse :</u> 32 Place Auguste Rodin <br> 94800, VILLEJUIF
+        </p>
         </header>
         <ul class="actions stacked">
             <li><a href="#" class="button fit primary">Vers le haut</a></li>
