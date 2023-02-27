@@ -46,6 +46,7 @@
     <hr>
 
 </header>
+<button><a href="../controlleur/index.php?action=ajouter">Ajouter fiche logement</a></button>
     <div id="demo"></div>
 <section class="cards-wrapper">
 <?php
@@ -59,7 +60,7 @@
                     <h2><?php echo $list_logement['type'], " " ,$list_logement['surface'];?> m²</h2>
                     <p>Propriétaire : <?php echo $list_logement['nom']," ", $list_logement['prenom'];?> </p>
                     <p><?php echo $list_logement['nbPieces'];?> pièces, <?php echo $list_logement['prixVenteLocation'];?>€</p>
-                    <div class="date"><?php echo $list_logement['dateDispo'];?></div>
+                    <div class="date"><?php if(is_null($list_logement['dateDispo'])){echo "Indisponible";} else {echo $list_logement['dateDispo'];}?></div>
                     <div class="tags">
                     <div class="tag">En savoir plus</div>
                     </div>

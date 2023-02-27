@@ -83,20 +83,38 @@ if (!isset($_SESSION["id"]) && isset($_REQUEST['action']))
                 //     $lesAdherent = getAdherent();
                 //     include ("../vues/inscrire.php");
                 //     break;
-                // case 'supprimer' :
-                //     $num = $_REQUEST['numeroInscription'];
-                //     supprimerInscription($num);
-                //     header('Location: index.php?action=inscriptions');
-                //     break;
-                // case 'voirPdf' :
-                //     $lesInscriptions = getInscription();
-                //     $num = $_REQUEST['numeroInscription'];
-                //     $uneInscription = $lesInscriptions[$num];
-                //    // var_dump($uneInscription);
-                //     include ("../vues/voir_pdf.php");
+                case 'valider' :
+                    try{
+                    if (isset ($_POST["save"]))
+                        {
+                
+                            $idnomProprietaire = htmlspecialchars(isset($_POST['idnomproprietaire']))? $_POST['idnomproprietaire'] : '' ;
+                            $type = htmlspecialchars(isset($_POST['type']))? $_POST['type'] : '' ;
+                            $nbPieces = htmlspecialchars(isset($_POST['nbPieces']))? $_POST['nbPieces'] : '' ;
+                            $surface = htmlspecialchars(isset($_POST['surface']))? $_POST['surface'] : '' ;
+                            $etatHabitation= htmlspecialchars(isset($_POST['etatHabitation']))? $_POST['etatHabitation'] : '' ;
+                            $objectifGestion= htmlspecialchars(isset($_POST['objectifGestion']))? $_POST['objectifGestion'] : '' ;
+                            $prixVenteLocation= htmlspecialchars(isset($_POST['prix']))? $_POST['prix'] : '' ;
+                            $dateDispo= htmlspecialchars(isset($_POST['date']))? $_POST['date'] : '' ;
+                            $commition= htmlspecialchars(isset($_POST['commition']))? $_POST['commition'] : '' ;
+                            $idAdresse= htmlspecialchars(isset($_POST['adresse']))? $_POST['adresse'] : '' ;
 
-                //     $pdf = creerPdf($uneInscription);
-                //     break;
+                          $tableau = array($idnomProprietaire, $type, $nbPieces, $surface, $etatHabitation, $objectifGestion, $prixVenteLocation, $dateDispo, $commition, $idAdresse, 1);
+
+                        }
+                        validerFiche($tableau);
+                        header("Location: index.php?action=logement");
+                        
+                 } 
+                   catch (Exception $e){
+                       echo $e -> getMessage();
+                }    
+                break;
+                case 'ajouter' :
+                    $proprietaires = getProprietaire();
+                    $adresses = getAdresse();
+                     include ("../vue/ficheLogement.php");
+                break;
                 // case  'validerInscription' :
                 //     try{
                 //         if (isset ($_POST["save"]))
