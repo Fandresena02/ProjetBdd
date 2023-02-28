@@ -40,7 +40,7 @@
                 <p>Votre agence immobilière<br />
             </p>
                 <ul class="actions special">
-                    <li><a href="#" class="button primary">Nos logements </a></li>
+                    <li><a href="../controlleur/index.php?action=logement" class="button primary">Nos logements </a></li>
                 </ul>
             </div>
             <a href="#one" class="more scrolly">En savoir plus</a>

@@ -115,29 +115,6 @@ if (!isset($_SESSION["id"]) && isset($_REQUEST['action']))
                     $adresses = getAdresse();
                      include ("../vue/ficheLogement.php");
                 break;
-                // case  'validerInscription' :
-                //     try{
-                //         if (isset ($_POST["save"]))
-                //         {
-                
-                //             $nom = htmlspecialchars(isset($_POST['nom']))? $_POST['nom'] : '' ;
-                //             $prenom = htmlspecialchars(isset($_POST['prenom']))? $_POST['prenom'] : '' ;
-                //             $tel = htmlspecialchars(isset($_POST['tel']))? $_POST['tel'] : '' ;
-                //             $adresse = htmlspecialchars(isset($_POST['adresse']))? $_POST['adresse'] : '' ;
-                //             $mail= htmlspecialchars(isset($_POST['mail']))? $_POST['mail'] : '' ;
-                //             $numero= htmlspecialchars(isset($_POST['numero']))? $_POST['numero'] : '' ;
-
-                //             $tableau = array($nom, $prenom, $tel, $adresse, $mail, $numero);
-
-                //         }
-                //         validerInscription($tableau);
-                //         include("../vues/confirmeInscription.php");
-                        
-                //     } 
-                //     catch (Exception $e){
-                //         echo $e -> getMessage();
-                //     }                   
-                //     break;
                 case 'connexion':
                     header("Location: ../vue/connexion.php");
                     break;
