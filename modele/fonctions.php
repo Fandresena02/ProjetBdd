@@ -36,7 +36,7 @@ function getunLogement($numero)
 {
     include 'db_connect.php';
     $req2 = "select pers.nom, pers.prenom, l.type, l.nbPieces, l.surface, l.etatHabitation, l.objectifGestion, l.prixVenteLocation, l.dateDispo, l.commission, a.libelle, a.ville, a.cp from logement as l
-    inner join proprietaire as p on p.idProp = l.idnomProprietaire
+    inner join proprietaire as p on p.idProp = l.idProprietaire
     inner join personne as pers on pers.idPersonne = p.idPersonne
     inner join adresse as a on a.idAdresse = l.idAdresse
     inner join agence as ag on ag.idAgence = l.idAgence
@@ -91,7 +91,7 @@ function validerFiche($tableau)
     
     include 'db_connect.php';
 
-    $req1 = "insert into logement (idnomProprietaire, type, nbPieces, surface, etatHabitation, objectifGestion, prixVenteLocation, dateDispo, commission, idAdresse, idAgence) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $req1 = "insert into logement (idProprietaire, type, nbPieces, surface, etatHabitation, objectifGestion, prixVenteLocation, dateDispo, commission, idAdresse, idAgence) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $res1 = $dbh -> prepare($req1);
     $res1 -> bindParam(1, $tableau[0]);
     $res1 -> bindParam(2, $tableau[1]);
