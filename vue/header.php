@@ -15,7 +15,7 @@
 
 
         <header id="header" class="alt">
-            <h1><a href="index.html">Logeons-nous<img style = "width: 25px" src="../images/icon.webp" alt="computer icon" /></a></h1>
+            <h1><a href="index.php">Logeons-nous<img style = "width: 25px" src="../images/icon.webp" alt="computer icon" /></a></h1>
                 <nav id="nav">
                     <ul>
                         <li class="special">
