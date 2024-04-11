@@ -5,7 +5,7 @@ function getLogement()
     include 'db_connect.php';
     
     $req = "select l.idLogement, pers.nom, pers.prenom, l.type, l.nbPieces, l.surface, l.etatHabitation, l.objectifGestion, l.prixVenteLocation, l.dateDispo, l.commission, a.libelle from logement as l
-    inner join proprietaire as p on p.idProp = l.idnomProprietaire
+    inner join proprietaire as p on p.idProp = l.idProprietaire
     inner join personne as pers on pers.idPersonne = p.idPersonne
     inner join adresse as a on a.idAdresse = l.idAdresse
     inner join agence as ag on ag.idAgence = l.idAgence";
