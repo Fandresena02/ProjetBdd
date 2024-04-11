@@ -1,5 +1,7 @@
 <?php
 $user = "root";
-$pass = "";
-$dbh  = new PDO('mysql:host=localhost;dbname=bdd_efrei', $user, $pass);
+$pass = "roototo123";
+$host = "localhost"; // Nom du service MySQL dans Docker Compose
+$db_name = "bdd_efrei";
+$dbh = new PDO("mysql:host=$host;dbname=$db_name", $user, $pass);
 ?>

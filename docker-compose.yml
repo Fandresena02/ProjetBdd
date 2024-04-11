@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  mysql-container:
+    image: mysql:latest
+    container_name: my-sql-container
+    environment:
+      MYSQL_DATABASE: bdd_efrei
+      MYSQL_ROOT_PASSWORD: roototo123
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker:/docker-entrypoint-initdb.d

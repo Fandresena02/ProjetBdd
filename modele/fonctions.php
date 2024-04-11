@@ -110,7 +110,7 @@ function validerFiche($tableau)
 function seConnecter($login, $mdp)
 {
     include 'db_connect.php';
-    $req9 = "select id, count(*) as nb from user where login = ? and mdp =?";
+    $req9 = "select id, count(*) as nb from user where login = ? and mdp =? group by id";
     $res9 = $dbh -> prepare($req9);
     $res9 -> bindParam(1,$login);
     $res9 -> bindParam(2,$mdp);
